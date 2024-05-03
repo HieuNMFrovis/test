@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">list ảnh</string>
+    <string name="no_data_click_to_see_detail" />
+    <string name="text">No Data Click to see detail</string>
+</resources>
