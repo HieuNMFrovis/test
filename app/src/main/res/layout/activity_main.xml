@@ -82,12 +82,14 @@
              />
       </androidx.constraintlayout.widget.ConstraintLayout>
    </androidx.constraintlayout.widget.ConstraintLayout>
-   <androidx.recyclerview.widget.RecyclerView
+   <GridView
        android:id="@+id/rvimage"
-       android:layout_width="wrap_content"
+       android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       tools:listitem="@layout/parent_item"
-       app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+       android:numColumns="3"
+       android:horizontalSpacing="2dp"
+       android:verticalSpacing="8dp"
+       android:layout_marginTop="16dp"
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintTop_toBottomOf="@id/optionalbum"
