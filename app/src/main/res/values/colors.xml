@@ -5,4 +5,5 @@
     <color name="main_text_color_grey">#373636</color>
     <color name="blue_3">#2891FF</color>
     <color name="color_no_data">#EFEFEF</color>
+    <color name="blue">#4D97FF</color>
 </resources>

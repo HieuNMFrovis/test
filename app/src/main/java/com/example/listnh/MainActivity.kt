@@ -17,16 +17,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     var modalList = ArrayList<Modal>()
     var name = arrayOf(
-        "image1",
-        "image1",
-        "image1",
-        "image1",
-        "image1",
-        "image1",
-        "image1",
-        "image1",
-        "image1",
-        "image1"
+        "image1", "image1", "image1", "image1", "image1", "image1", "image1", "image1", "image1"
     )
     var images = intArrayOf(
         R.drawable.image1,
@@ -38,30 +29,33 @@ class MainActivity : AppCompatActivity() {
         R.drawable.image1,
         R.drawable.image1,
         R.drawable.image1,
-        R.drawable.image1,)
+
+    )
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        for (i in name.indices){
-            modalList.add(Modal(name[i],images[i]))
+        for (i in name.indices) {
+            modalList.add(Modal(name[i], images[i]))
         }
 
-        var customAdapter = CustomAdapter(modalList,this);
+        var customAdapter = CustomAdapter(modalList, this);
         binding.gvimage.adapter = customAdapter;
         binding.gvimage.setOnItemClickListener { adapterView, view, i, l ->
-            modalList[i].name?.let { Log.e("name" , it) };
+            modalList[i].name?.let { Log.e("name", it) };
         }
     }
-    class CustomAdapter(
-        var itemModel: ArrayList<Modal>,
-        var context: Context
-    ) : BaseAdapter(){
 
-        var layoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+    class CustomAdapter(
+        var itemModel: ArrayList<Modal>, var context: Context
+    ) : BaseAdapter() {
+
+        var layoutInflater =
+            context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
         override fun getCount(): Int {
-          return itemModel.size
+            return itemModel.size
         }
 
         override fun getItem(p0: Int): Any {
@@ -69,10 +63,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         override fun getItemId(p0: Int): Long {
-           return p0.toLong()
+            return p0.toLong()
         }
 
-        override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {  var itemView: View? = null
+        override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
+            var itemView: View? = null
             itemView?.let { view ->
             } ?: run {
                 itemView = layoutInflater.inflate(R.layout.row_item, p2, false)
@@ -85,7 +80,6 @@ class MainActivity : AppCompatActivity() {
             val params = imageView?.layoutParams as ViewGroup.MarginLayoutParams
             params.setMargins(marginInPx, marginInPx, marginInPx, marginInPx)
             imageView?.layoutParams = params
-//            imageView?.setImageResource(itemModel[p0].image!!)
             return itemView!!
         }
 
