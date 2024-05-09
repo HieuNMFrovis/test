@@ -77,7 +77,14 @@ class MainActivity : AppCompatActivity() {
             } ?: run {
                 itemView = layoutInflater.inflate(R.layout.row_item, p2, false)
             }
-            var imageView = itemView?.findViewById<ImageView>(R.id.image1);
+            var imageView = itemView?.findViewById<ImageView>(R.id.image1)
+            imageView?.layoutParams?.width = ViewGroup.LayoutParams.WRAP_CONTENT
+            imageView?.layoutParams?.height = ViewGroup.LayoutParams.WRAP_CONTENT
+            val marginInDp = 0
+            val marginInPx = (marginInDp * context.resources.displayMetrics.density).toInt()
+            val params = imageView?.layoutParams as ViewGroup.MarginLayoutParams
+            params.setMargins(marginInPx, marginInPx, marginInPx, marginInPx)
+            imageView?.layoutParams = params
 //            imageView?.setImageResource(itemModel[p0].image!!)
             return itemView!!
         }
