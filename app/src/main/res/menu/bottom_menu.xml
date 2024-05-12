@@ -1,27 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/menu_lock"
-        android:icon="@drawable/ic_lock_bottom_nav"
+        android:icon="@drawable/ic_lock"
+        android:iconTint="@color/white"
         android:title="@string/lock"
-        app:cnb_iconColor="@color/white"
-        app:cnb_backgroundColor="@color/blue"
         />
     <item
         android:id="@+id/menu_theme"
-        android:icon="@drawable/ic_theme_bottom_nav"
-        android:title="@string/theme"
-        app:cnb_iconColor="@color/white"
-        app:cnb_backgroundColor="@color/blue"
-        />
+        android:icon="@drawable/ic_lock"
+        android:iconTint="@color/white"
+        android:title="@string/theme" />
     <item
         android:id="@+id/menu_setting"
-        android:icon="@drawable/ic_setting_bottom_nav"
-        android:title="@string/setting"
-        app:cnb_iconColor="@color/white"
-        app:cnb_backgroundColor="@color/blue"
-        />
+        android:icon="@drawable/ic_lock"
+        android:iconTint="@color/white"
+        android:title="@string/setting" />
 </menu>
