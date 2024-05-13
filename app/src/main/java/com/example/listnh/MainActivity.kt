@@ -1,6 +1,8 @@
 package com.example.listnh
 
 import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -8,8 +10,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.GridView
 import android.widget.ImageView
 import com.example.listnh.databinding.ActivityMainBinding
+import kotlinx.coroutines.NonDisposableHandle.parent
 
 
 class MainActivity : AppCompatActivity() {
@@ -44,11 +48,13 @@ class MainActivity : AppCompatActivity() {
         binding.gvimage.adapter = customAdapter;
         binding.gvimage.setOnItemClickListener { adapterView, view, i, l ->
             modalList[i].name?.let { Log.e("name", it) };
+
         }
     }
 
     class CustomAdapter(
-        var itemModel: ArrayList<Modal>, var context: Context
+        var itemModel: ArrayList<Modal>, var context: Context,
+        var columnWidth: Int
     ) : BaseAdapter() {
 
         var layoutInflater =
@@ -67,12 +73,25 @@ class MainActivity : AppCompatActivity() {
         }
 
         override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
+
             var itemView: View? = null
             itemView?.let { view ->
             } ?: run {
                 itemView = layoutInflater.inflate(R.layout.row_item, p2, false)
             }
+            val displayMetrics = context.resources.displayMetrics
+            val screenWidth = displayMetrics.widthPixels
+            val columns = 3
+            val columnWidth = screenWidth / columns
+            val customAdapter = CustomAdapter(modalList, this, columnWidth)
+            binding.gvimage.adapter = customAdapter
             var imageView = itemView?.findViewById<ImageView>(R.id.image1)
+
+//            val imageResource = itemModel[p0].image
+//            val bitmap = BitmapFactory.decodeResource(context.resources, imageResource)
+//            val scaledWidth = (parent?.width ?: 0) / 3
+//            val scaledImage = Bitmap.createScaledBitmap(bitmap, scaledWidth, 0, false)
+
             imageView?.layoutParams?.width = ViewGroup.LayoutParams.WRAP_CONTENT
             imageView?.layoutParams?.height = ViewGroup.LayoutParams.WRAP_CONTENT
             val marginInDp = 0
@@ -84,4 +103,5 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
 }
