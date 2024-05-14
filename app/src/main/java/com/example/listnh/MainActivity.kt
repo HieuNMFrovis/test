@@ -78,12 +78,12 @@ class MainActivity : AppCompatActivity() {
             } ?: run {
                 itemView = layoutInflater.inflate(R.layout.row_item, p2, false)
             }
-            val displayMetrics = context.resources.displayMetrics
-            val screenWidth = displayMetrics.widthPixels
-            val columns = 3
-            val columnWidth = screenWidth / columns
+//            val displayMetrics = context.resources.displayMetrics
+//            val screenWidth = displayMetrics.widthPixels
+//            val columns = 3
+//            val columnWidth = screenWidth / columns
             var imageView = itemView?.findViewById<ImageView>(R.id.image1)
-            imageView?.layoutParams?.width = columnWidth
+//            imageView?.layoutParams?.width = columnWidth
             imageView?.layoutParams?.width = ViewGroup.LayoutParams.MATCH_PARENT
             imageView?.layoutParams?.height = ViewGroup.LayoutParams.MATCH_PARENT
             val marginInDp = 0
