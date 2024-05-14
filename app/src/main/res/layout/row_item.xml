@@ -6,9 +6,12 @@
     android:layout_height="wrap_content"
     app:cardCornerRadius="10dp"
     >
-<RelativeLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+
         <ImageView
             android:id="@+id/image1"
             android:layout_width="wrap_content"
@@ -16,7 +19,7 @@
             android:scaleType="centerCrop"
             android:src="@drawable/image1"
             />
-</RelativeLayout>
+    </RelativeLayout>
 
 
 </com.google.android.material.card.MaterialCardView>

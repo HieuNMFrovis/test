@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         R.drawable.image1,
         R.drawable.image1,
 
-    )
+        )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,7 +54,6 @@ class MainActivity : AppCompatActivity() {
 
     class CustomAdapter(
         var itemModel: ArrayList<Modal>, var context: Context,
-        var columnWidth: Int
     ) : BaseAdapter() {
 
         var layoutInflater =
@@ -83,17 +82,10 @@ class MainActivity : AppCompatActivity() {
             val screenWidth = displayMetrics.widthPixels
             val columns = 3
             val columnWidth = screenWidth / columns
-            val customAdapter = CustomAdapter(modalList, this, columnWidth)
-            binding.gvimage.adapter = customAdapter
             var imageView = itemView?.findViewById<ImageView>(R.id.image1)
-
-//            val imageResource = itemModel[p0].image
-//            val bitmap = BitmapFactory.decodeResource(context.resources, imageResource)
-//            val scaledWidth = (parent?.width ?: 0) / 3
-//            val scaledImage = Bitmap.createScaledBitmap(bitmap, scaledWidth, 0, false)
-
-            imageView?.layoutParams?.width = ViewGroup.LayoutParams.WRAP_CONTENT
-            imageView?.layoutParams?.height = ViewGroup.LayoutParams.WRAP_CONTENT
+            imageView?.layoutParams?.width = columnWidth
+            imageView?.layoutParams?.width = ViewGroup.LayoutParams.MATCH_PARENT
+            imageView?.layoutParams?.height = ViewGroup.LayoutParams.MATCH_PARENT
             val marginInDp = 0
             val marginInPx = (marginInDp * context.resources.displayMetrics.density).toInt()
             val params = imageView?.layoutParams as ViewGroup.MarginLayoutParams
