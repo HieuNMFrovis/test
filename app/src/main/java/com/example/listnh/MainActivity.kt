@@ -42,10 +42,6 @@ class MainActivity : AppCompatActivity() {
 
         var customAdapter = CustomAdapter(modalList, this);
         binding.gvimage.adapter = customAdapter;
-        binding.gvimage.setOnItemClickListener { adapterView, view, i, l ->
-            modalList[i].name?.let { Log.e("name", it) };
-
-        }
     }
 
     class CustomAdapter(
