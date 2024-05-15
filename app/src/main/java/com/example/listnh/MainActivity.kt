@@ -1,8 +1,6 @@
 package com.example.listnh
 
 import android.content.Context
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -10,16 +8,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
-import android.widget.GridView
 import android.widget.ImageView
 import com.example.listnh.databinding.ActivityMainBinding
-import kotlinx.coroutines.NonDisposableHandle.parent
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    var modalList = ArrayList<Modal>()
+    private var modalList = ArrayList<Modal>()
     var name = arrayOf(
         "image1", "image1", "image1", "image1", "image1", "image1", "image1", "image1", "image1"
     )
@@ -41,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         for (i in name.indices) {
-            modalList.add(Modal(name[i], images[i]))
+            modalList.add(Modal(name[i], getString(images[i])))
         }
 
         var customAdapter = CustomAdapter(modalList, this);
@@ -72,18 +68,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
-
             var itemView: View? = null
             itemView?.let { view ->
             } ?: run {
                 itemView = layoutInflater.inflate(R.layout.row_item, p2, false)
             }
-//            val displayMetrics = context.resources.displayMetrics
-//            val screenWidth = displayMetrics.widthPixels
-//            val columns = 3
-//            val columnWidth = screenWidth / columns
             var imageView = itemView?.findViewById<ImageView>(R.id.image1)
-//            imageView?.layoutParams?.width = columnWidth
             imageView?.layoutParams?.width = ViewGroup.LayoutParams.MATCH_PARENT
             imageView?.layoutParams?.height = ViewGroup.LayoutParams.MATCH_PARENT
             val marginInDp = 0
@@ -93,7 +83,5 @@ class MainActivity : AppCompatActivity() {
             imageView?.layoutParams = params
             return itemView!!
         }
-
     }
-
 }
