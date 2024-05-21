@@ -17,4 +17,9 @@
         <item name="cornerSizeTopRight">32dp</item>
         <item name="cornerSizeTopLeft">32dp</item>
     </style>
+  <style name="fullscreen" parent="">
+      <item name="android:windowTranslucentStatus">true</item>
+      <item name="android:windowTranslucentNavigation">true</item>
+
+  </style>
 </resources>

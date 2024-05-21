@@ -1,8 +1,16 @@
 <resources>
-    <string name="app_name" translatable="false">list ảnh</string>
-    <string name="no_data_click_to_see_detail" translatable="false" />
-    <string name="text" translatable="false">No Data Click to see detail</string>
-    <string name="lock" translatable="false">Lock</string>
-    <string name="theme" translatable="false">Theme</string>
-    <string name="setting" translatable="false">Setting</string>
+    <string name="app_name"
+        translatable="false">list ảnh</string>
+    <string name="no_data_click_to_see_detail"
+        translatable="false" />
+    <string name="text"
+        translatable="false">No Data Click to see detail</string>
+    <string name="lock"
+        translatable="false">Lock</string>
+    <string name="theme"
+        translatable="false">Theme</string>
+    <string name="setting"
+        translatable="false">Setting</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
