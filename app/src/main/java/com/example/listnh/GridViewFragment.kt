@@ -9,11 +9,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
-import com.example.listnh.databinding.ActivityMainBinding
+import com.example.listnh.databinding.FragmentGridViewBinding
 
 class GridViewFragment : Fragment(R.layout.fragment_grid_view) {
     private var modalList = ArrayList<Modal>()
-    private lateinit var binding: FragmentMainBinding
+    private lateinit var binding: FragmentGridViewBinding
     var name = arrayOf(
         "image1", "image1", "image1", "image1", "image1", "image1", "image1", "image1", "image1"
     )
@@ -29,17 +29,18 @@ class GridViewFragment : Fragment(R.layout.fragment_grid_view) {
         R.drawable.image1,
 
         )
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentMainBinding.inflate(inflater, container, false)
+        binding = FragmentGridViewBinding.inflate(inflater, container, false)
         return binding.root
         for (i in name.indices) {
             modalList.add(Modal(name[i], getString(images[i])))
         }
 
-        var customAdapter = CustomAdapter(modalList, this);
+        var customAdapter = CustomAdapter(modalList, requireContext());
         binding.gvimage.adapter = customAdapter;
         binding.gvimage.setOnItemClickListener { adapterView, view, i, l ->
             modalList[i].name?.let { Log.e("name", it) };
@@ -83,5 +84,5 @@ class GridViewFragment : Fragment(R.layout.fragment_grid_view) {
             return itemView!!
         }
     }
-    }
+}
 
