@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import com.example.listnh.databinding.ActivityMainBinding
 
 
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -13,7 +14,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        replaceFragment(GridViewFragment())
         binding.bottomNavigator.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.menu_theme -> replaceFragment(GridViewFragment())
