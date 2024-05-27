@@ -2,7 +2,6 @@ package com.example.listnh
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import com.example.listnh.databinding.FragmentGridViewBinding
+
 
 class GridViewFragment : Fragment(R.layout.fragment_grid_view) {
     private var modalList = ArrayList<Modal>()
@@ -27,25 +27,19 @@ class GridViewFragment : Fragment(R.layout.fragment_grid_view) {
         R.drawable.image1,
         R.drawable.image1,
         R.drawable.image1,
-
-        )
+    )
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View {
         binding = FragmentGridViewBinding.inflate(inflater, container, false)
-        return binding.root
+
+        val customAdapter = CustomAdapter(modalList, requireContext())
+        binding.gvimage.adapter = customAdapter
         for (i in name.indices) {
             modalList.add(Modal(name[i], getString(images[i])))
         }
-
-        var customAdapter = CustomAdapter(modalList, requireContext());
-        binding.gvimage.adapter = customAdapter;
-        binding.gvimage.setOnItemClickListener { adapterView, view, i, l ->
-            modalList[i].name?.let { Log.e("name", it) };
-
-        }
+        return binding.root
     }
 
     class CustomAdapter(
@@ -68,19 +62,18 @@ class GridViewFragment : Fragment(R.layout.fragment_grid_view) {
         }
 
         override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
-            var itemView: View? = null
-            itemView?.let { view ->
-            } ?: run {
+            var itemView = p1
+            if (itemView == null) {
                 itemView = layoutInflater.inflate(R.layout.row_item, p2, false)
             }
-            var imageView = itemView?.findViewById<ImageView>(R.id.image1)
+            val imageView = itemView?.findViewById<ImageView>(R.id.image1)
             imageView?.layoutParams?.width = ViewGroup.LayoutParams.MATCH_PARENT
             imageView?.layoutParams?.height = ViewGroup.LayoutParams.MATCH_PARENT
             val marginInDp = 0
             val marginInPx = (marginInDp * context.resources.displayMetrics.density).toInt()
             val params = imageView?.layoutParams as ViewGroup.MarginLayoutParams
             params.setMargins(marginInPx, marginInPx, marginInPx, marginInPx)
-            imageView?.layoutParams = params
+            imageView.layoutParams = params
             return itemView!!
         }
     }

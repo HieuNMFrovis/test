@@ -86,10 +86,10 @@
     <GridView
         android:id="@+id/gvimage"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginTop="16dp"
         android:gravity="center"
-        android:horizontalSpacing="6dp"
+        android:horizontalSpacing="2dp"
         android:numColumns="3"
         android:verticalSpacing="4dp"
         app:layout_constraintEnd_toEndOf="parent"
