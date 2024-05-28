@@ -15,7 +15,7 @@ class GridViewFragment : Fragment(R.layout.fragment_grid_view) {
     private var modalList = ArrayList<Modal>()
     private lateinit var binding: FragmentGridViewBinding
     var name = arrayOf(
-        "image1", "image1", "image1", "image1", "image1", "image1", "image1", "image1", "image1"
+        "image1", "image1", "image1", "image1", "image1", "image1", "image1", "image1", "image1", "image1", "image1", "image1", "image1", "image1", "image1"
     )
     var images = intArrayOf(
         R.drawable.image1,
@@ -27,6 +27,13 @@ class GridViewFragment : Fragment(R.layout.fragment_grid_view) {
         R.drawable.image1,
         R.drawable.image1,
         R.drawable.image1,
+        R.drawable.image1,
+        R.drawable.image1,
+        R.drawable.image1,
+        R.drawable.image1,
+        R.drawable.image1,
+        R.drawable.image1,
+
     )
 
     override fun onCreateView(

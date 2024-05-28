@@ -3,9 +3,8 @@ package com.example.listnh
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import com.example.listnh.databinding.ActivityMainBinding
-import com.example.listnh.GridViewFragment
 
+import com.example.listnh.databinding.ActivityMainBinding
 
 
 class MainActivity : AppCompatActivity() {
@@ -25,6 +24,7 @@ class MainActivity : AppCompatActivity() {
             true
         }
     }
+
     private fun replaceFragment(fragment: Fragment) {
         val fragmentManager = supportFragmentManager
         val fragmentTransition = fragmentManager.beginTransaction()
