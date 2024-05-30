@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import com.example.listnh.databinding.FragmentGridViewBinding
@@ -15,7 +16,8 @@ class GridViewFragment : Fragment(R.layout.fragment_grid_view) {
     private var modalList = ArrayList<Modal>()
     private lateinit var binding: FragmentGridViewBinding
     var name = arrayOf(
-        "image1", "image1", "image1", "image1", "image1", "image1", "image1", "image1", "image1", "image1", "image1", "image1", "image1", "image1", "image1"
+        "image1", "image1", "image1", "image1", "image1", "image1", "image1", "image1", "image1",
+        "image1", "image1", "image1", "image1", "image1", "image1"
     )
     var images = intArrayOf(
         R.drawable.image1,
@@ -34,7 +36,7 @@ class GridViewFragment : Fragment(R.layout.fragment_grid_view) {
         R.drawable.image1,
         R.drawable.image1,
 
-    )
+        )
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -43,9 +45,14 @@ class GridViewFragment : Fragment(R.layout.fragment_grid_view) {
 
         val customAdapter = CustomAdapter(modalList, requireContext())
         binding.gvimage.adapter = customAdapter
+
         for (i in name.indices) {
             modalList.add(Modal(name[i], getString(images[i])))
         }
+        binding.gvimage.onItemClickListener =
+            AdapterView.OnItemClickListener { adapterView, view, i, l ->
+                binding.optionalbum.visibility = View.GONE
+            }
         return binding.root
     }
 
