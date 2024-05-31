@@ -1,10 +1,11 @@
 package com.example.listnh
 
 class Modal {
-    var name:String? = null
-    var image:Int? = null
-    constructor(name:String,image:Int ){
-        this.name = name;
-        this.image = image;
+    var name: String
+    var image: String
+
+    constructor(name: String, image:String) {
+        this.name = name
+        this.image = image
     }
 }

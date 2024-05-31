@@ -1,13 +1,18 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.ListẢnh"
+    <style name="Base.Theme.GridView"
         parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.ListẢnh"
-        parent="Base.Theme.ListẢnh" />
+    <style name="Theme.GridView"
+        parent="Base.Theme.GridView"/>
     <style name="CustomCardViewStyle" parent="@style/Widget.MaterialComponents.CardView">
         <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay_card_custom_corners</item>
     </style>
@@ -17,4 +22,8 @@
         <item name="cornerSizeTopRight">32dp</item>
         <item name="cornerSizeTopLeft">32dp</item>
     </style>
+  <style name="fullscreen" parent="">
+      <item name="android:windowTranslucentStatus">true</item>
+      <item name="android:windowTranslucentNavigation">true</item>
+  </style>
 </resources>
