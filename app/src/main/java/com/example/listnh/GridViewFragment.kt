@@ -19,7 +19,7 @@ class GridViewFragment : Fragment(R.layout.fragment_grid_view) {
         "image1", "image1", "image1", "image1", "image1", "image1", "image1", "image1", "image1",
         "image1", "image1", "image1", "image1", "image1", "image1"
     )
-    var images = intArrayOf(
+    private var images = intArrayOf(
         R.drawable.image1,
         R.drawable.image1,
         R.drawable.image1,
@@ -35,8 +35,7 @@ class GridViewFragment : Fragment(R.layout.fragment_grid_view) {
         R.drawable.image1,
         R.drawable.image1,
         R.drawable.image1,
-
-        )
+    )
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -50,25 +49,24 @@ class GridViewFragment : Fragment(R.layout.fragment_grid_view) {
             modalList.add(Modal(name[i], getString(images[i])))
         }
         binding.gvimage.onItemClickListener =
-            AdapterView.OnItemClickListener { adapterView, view, i, l ->
+            AdapterView.OnItemClickListener { _, _, _, _ ->
                 binding.optionalbum.visibility = View.GONE
             }
         return binding.root
     }
 
     class CustomAdapter(
-        var itemModel: ArrayList<Modal>, var context: Context,
+        private var itemModels: ArrayList<Modal>, private val context: Context,
     ) : BaseAdapter() {
-
-        var layoutInflater =
+       private var layoutInflater =
             context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
         override fun getCount(): Int {
-            return itemModel.size
+            return itemModels.size
         }
 
         override fun getItem(p0: Int): Any {
-            return itemModel[p0]
+            return itemModels[p0]
         }
 
         override fun getItemId(p0: Int): Long {
